@@ -1,0 +1,32 @@
+#container {
+  text-align: center;
+  transform: translateY(-50%);
+  padding-top: 550px;
+}
+
+.homeBanner{
+}
+
+.bannerImg{
+  width: 100%;
+  height: 475px;
+}
+
+ion-row{
+  padding: 0px;
+}
+
+ion-col{
+  padding: 0px;
+}
+
+ion-col h1{
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ion-color-ripley);
+}
+
+ion-col h2{
+  font-weight: 500;
+  font-size: 24px;
+}

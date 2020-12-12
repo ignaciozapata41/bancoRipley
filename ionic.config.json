@@ -1,0 +1,7 @@
+{
+  "name": "bancoRipley",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
