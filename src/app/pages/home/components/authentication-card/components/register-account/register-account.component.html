@@ -1,3 +1,20 @@
-<p>
-  register-account works!
-</p>
+<form id="form" [formGroup]="newUserForm" (ngSubmit)="logForm()">
+  <ion-item>
+    <ion-label position="floating">Rut</ion-label>
+    <ion-input type="text" name="rut" formControlName="rut"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input type="text" name="name" formControlName="name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Apellidos</ion-label>
+    <ion-input type="text" name="apellidos" formControlName="surnames"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input type="email" name="email" formControlName="email"></ion-input>
+  </ion-item>
+  
+  <ion-button  type="submit" class="ion-margin-top" color="ripley" expand="full" size="medium" [disabled]="!newUserForm.valid">Registrar</ion-button>
+</form>
