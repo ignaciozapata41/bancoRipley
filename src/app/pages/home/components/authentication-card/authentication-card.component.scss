@@ -1,0 +1,20 @@
+.authenticationContainer{
+    position: absolute;
+    background: white;
+    color: black;
+    z-index: 10;
+    left: 10%;
+    top: 5%;
+    width: 400px;
+    height: 380px;
+  }
+
+  .authenticationTypeSegment{
+    z-index: 100;
+  }
+
+  ion-segment-button{
+      font-size: 23;
+      font-weight: 600;
+      width: 100% !important;
+  }

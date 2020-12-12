@@ -7,6 +7,7 @@
 .bannerImg{
   width: 100%;
   height: 475px;
+  z-index: 1;
 }
 
 ion-col h1{
@@ -20,6 +21,14 @@ ion-col h2{
   font-size: 24px;
 }
 
-.avanceCols{
+@media (orientation: landscape) and (max-width: 768px) {
 
+
+}
+
+@media (orientation: portrait) and (max-width: 768px) {
+  .bannerImg{
+    width: 100%;
+    height: 300px;
+  }
 }
