@@ -1,0 +1,9 @@
+<ion-card color="ripley" class="avanceCard" *ngIf="avance">
+  <ion-card-header>
+    <ion-card-subtitle><h1>{{avance.monto | currency:'$' : 'symbol' : '1.0-0'}}</h1></ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <p>En {{avance.numCuotas}} cuotas de $63.533 | $57.515</p>
+    <p>CAE: {{avance.cae}}% | CTC: {{avance.ctc}}</p>
+  </ion-card-content>
+</ion-card>

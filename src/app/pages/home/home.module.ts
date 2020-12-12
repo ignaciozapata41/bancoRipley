@@ -9,6 +9,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 // modules
 import { sharedModule } from './../../shared/shared.modules';
 
+// components
+import { AvancesCardComponent } from './components/avances-card/avances-card.component';
 
 @NgModule({
   imports: [
@@ -18,6 +20,6 @@ import { sharedModule } from './../../shared/shared.modules';
     HomePageRoutingModule,
     sharedModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, AvancesCardComponent]
 })
 export class HomePageModule {}

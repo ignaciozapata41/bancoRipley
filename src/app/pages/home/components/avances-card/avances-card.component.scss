@@ -1,0 +1,30 @@
+.avanceCard{
+    width: 100%;
+    min-width: 200px;
+    padding: 10px;   
+}
+
+.avanceCard{
+    -moz-transform: translateX(0);
+}
+
+.avanceCard::before{
+    content: 'AVANCE';
+    background-color: var(--ion-color-warning);
+    position: absolute;
+    bottom: 80%;
+    left: 0px;
+    padding: 5px 10px;
+    width: 90px;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+h1{
+    color: var(--ion-color-warning);
+    font-weight: 600;
+}
+
+ion-card-header{
+    padding-bottom: 3px;
+}

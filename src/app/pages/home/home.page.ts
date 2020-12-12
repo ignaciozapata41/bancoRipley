@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+// servicios
+import { AvancesService } from './services/avances.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +10,6 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public _avancesService: AvancesService) {}
 
 }
