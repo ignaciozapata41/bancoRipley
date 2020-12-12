@@ -29,3 +29,14 @@
 .datos{
     font-weight: 600;
 }
+
+.toastAfterHeader{
+    position: absolute;
+    left: 0px;
+}
+
+.invalidItem {
+    --full-highlight-height: calc(var(--highlight-height) * var(--show-full-highlight));
+    --inset-highlight-height: calc(var(--highlight-height) * var(--show-inset-highlight));
+    --border-color: var(--ion-item-border-color,var(--ion-border-color,red));
+}

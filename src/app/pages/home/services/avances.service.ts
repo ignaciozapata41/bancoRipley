@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // interfaces
-import { avances } from './../../../interfaces/interfaces';
+import { Avances } from './../../../interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { avances } from './../../../interfaces/interfaces';
 export class AvancesService {
 
   // Simulamos avances extraidos desde alguna bd o procedimiento.
-  avances: avances[] = [
+  avances: Avances[] = [
     {
       monto: 200000,
       numCuotas: 12,

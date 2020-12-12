@@ -1,4 +1,4 @@
-import { avances } from './../../../../interfaces/interfaces';
+import { Avances } from './../../../../interfaces/interfaces';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./avances-card.component.scss'],
 })
 export class AvancesCardComponent implements OnInit {
-  @Input() avance: avances;
+  @Input() avance: Avances;
 
   constructor() { }
 
