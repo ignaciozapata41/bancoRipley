@@ -10,10 +10,10 @@
 
   <ion-slides #slidesCheckIn>
     <ion-slide >
-        <app-login></app-login>
+        <app-login (showNewAccountFormEmitter)="slideOnChange(1, slidesAuth)"></app-login>
     </ion-slide>
     <ion-slide >
         <app-register-account></app-register-account>
     </ion-slide>
-</ion-slides>   
+  </ion-slides>   
 </ion-card>

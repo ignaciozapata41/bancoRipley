@@ -40,3 +40,7 @@
     --inset-highlight-height: calc(var(--highlight-height) * var(--show-inset-highlight));
     --border-color: var(--ion-item-border-color,var(--ion-border-color,red));
 }
+
+form ion-label{
+    font-weight: 600;
+}

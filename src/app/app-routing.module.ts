@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'bank-portal',
+    loadChildren: () => import('./pages/bank-portal/bank-portal.module').then( m => m.BankPortalPageModule)
+  },
 ];
 
 @NgModule({

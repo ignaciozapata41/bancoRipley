@@ -8,28 +8,28 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 // modules
 import { sharedModule } from './../../shared/shared.modules';
+import { homeComponentsModule } from './components/homeComponentsModule';
 
 // components
 import { AvancesCardComponent } from './components/avances-card/avances-card.component';
-import { AuthenticationCardComponent } from './components/authentication-card/authentication-card.component';
-import { LoginComponent } from './components/authentication-card/components/login/login.component';
-import { RegisterAccountComponent } from './components/authentication-card/components/register-account/register-account.component';
+import { AuthMovileModalPageModule } from 'src/app/pages/home/components/modals/auth-movile-modal/auth-movile-modal.module';
+import { AuthMovileModalPage } from 'src/app/pages/home/components/modals/auth-movile-modal/auth-movile-modal.page';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
-    ReactiveFormsModule,
     HomePageRoutingModule,
     sharedModule,
+    homeComponentsModule,
+    AuthMovileModalPageModule,
   ],
   declarations: [
     HomePage,
     AvancesCardComponent,
-    AuthenticationCardComponent,
-    LoginComponent,
-    RegisterAccountComponent,
+  ],
+  entryComponents:[
+    AuthMovileModalPage
   ],
 })
 export class HomePageModule {}

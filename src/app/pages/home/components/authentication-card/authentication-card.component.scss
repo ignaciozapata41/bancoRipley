@@ -18,3 +18,13 @@
       font-weight: 600;
       width: 100% !important;
   }
+
+  @media (orientation: portrait) and (max-width: 768px) {
+    .authenticationContainer{
+      position:sticky;
+      background: white;
+      color: black;
+      width: 350px;
+      height: 400px;
+    }
+  }

@@ -1,3 +1,18 @@
-<p>
-  login works!
-</p>
+<form id="form" [formGroup]="loginForm" (ngSubmit)="login()" class="ion-padding-top">
+  <ion-item>
+    <ion-label position="floating">Rut</ion-label>
+    <ion-input type="text" name="rut" formControlName="rut"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">contraseña</ion-label>
+    <ion-input type="password" name="apellidos" formControlName="password"></ion-input>
+  </ion-item> 
+  <ion-button  type="submit" class="ion-margin-top" color="ripley" expand="full" size="medium" [disabled]="!loginForm.valid">Acceder</ion-button>
+</form>
+<ion-grid>
+  <ion-row>
+    <ion-col size='12' class="ion-text-end">
+      <ion-label class="newAccLabel" (click)="ShowNewAccountForm()">Crear Cuenta</ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>

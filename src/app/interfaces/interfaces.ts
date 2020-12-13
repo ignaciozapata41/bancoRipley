@@ -19,3 +19,8 @@ export class User{
         this.password = password;
       }    
 }
+
+export interface httpResponse{
+    msg: string;
+    data: any;
+}
