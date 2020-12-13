@@ -1,10 +1,14 @@
-import { ToastService } from './toast.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { User, httpResponse } from 'src/app/interfaces/interfaces'
+import { User, httpResponse } from 'src/app/interfaces/interfaces';
+import { Subject, Observable } from 'rxjs';
+
+// services
+import { ToastService } from './toast.service';
+import { BankAccountService } from 'src/app/pages/bank-portal/services/bank-account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +17,10 @@ export class UserService {
   private token: string;
   private userAcc: User;
 
-  constructor(private httpClient: HttpClient, private _ToastService: ToastService, private router: Router) { }
+  LoginSubject$: Subject<any> = new Subject();
+  readonly LoginObservable$: Observable<any> = this.LoginSubject$.asObservable();
+
+  constructor(private httpClient: HttpClient, private _ToastService: ToastService, private router: Router,private _BankAccountService: BankAccountService) { }
 
   async createNewUser(newUser: User){
     let url = `${environment.endPoint}users/newUser`; 
@@ -39,12 +46,15 @@ export class UserService {
     try{
       await this.httpClient.post(url, {rut, password})
         .pipe(
-          map( (resp : httpResponse) =>{
+          map( async (resp : httpResponse) =>{
             if(resp && resp.data){
               this.token = resp.data.token;
               this.userAcc = resp.data.user;
+
+              await this._BankAccountService.getUserBankAcc(this.userAcc.rut);
               this.closeModals();
               this.router.navigate(['bank-portal']); 
+              this.triggerLoginObservable();
             }
           })
         ).toPromise();
@@ -61,6 +71,9 @@ export class UserService {
     });
   }
 
+  triggerLoginObservable(){
+    this.LoginSubject$.next();
+  }
 
   getUserName(){
     return this.userAcc.name;
@@ -71,7 +84,6 @@ export class UserService {
   }
 
   getUser(){
-    console.log('user')
     return this.userAcc;
   }
 }

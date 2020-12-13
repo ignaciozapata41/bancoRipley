@@ -1,7 +1,7 @@
 import { sharedModule } from './../../shared/shared.modules';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { BankPortalPageRoutingModule } from './bank-portal-routing.module';
@@ -16,6 +16,7 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
     CommonModule,
     FormsModule,
     IonicModule,
+    ReactiveFormsModule,
     BankPortalPageRoutingModule,
     sharedModule,
   ],

@@ -30,3 +30,10 @@ export interface menuOptions{
     name: string;
     title: String;
 }
+
+export interface BankAccount{
+    account_number: string;
+    rut: string;
+    amount: number;
+    type: number;
+}
