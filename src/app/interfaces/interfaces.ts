@@ -24,3 +24,9 @@ export interface httpResponse{
     msg: string;
     data: any;
 }
+
+export interface menuOptions{
+    icon: string;
+    name: string;
+    title: String;
+}

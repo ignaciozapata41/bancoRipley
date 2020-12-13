@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 //services
-import { UserService } from 'src/app/pages/home/services/user.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 // clases
 import { User } from './../../../../../../interfaces/interfaces';

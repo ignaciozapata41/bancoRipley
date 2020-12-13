@@ -7,6 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { BankPortalPageRoutingModule } from './bank-portal-routing.module';
 import { BankPortalPage } from './bank-portal.page';
 
+// components
+import { ChargeMountComponent } from './components/charge-mount/charge-mount.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +19,10 @@ import { BankPortalPage } from './bank-portal.page';
     BankPortalPageRoutingModule,
     sharedModule,
   ],
-  declarations: [BankPortalPage]
+  declarations: [
+    BankPortalPage,
+    ChargeMountComponent,
+    AccountInfoComponent
+  ]
 })
 export class BankPortalPageModule {}

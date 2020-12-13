@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 //services
 import { ToastService } from './../../../../../../shared/services/toast.service';
-import { UserService } from 'src/app/pages/home/services/user.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-login',

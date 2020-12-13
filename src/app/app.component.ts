@@ -21,7 +21,7 @@ export class AppComponent implements OnDestroy{
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menu: MenuController,
-    private _MenuService: MenuService,
+    public _MenuService: MenuService,
   ) {
     this.initializeApp();
 

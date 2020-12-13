@@ -1,5 +1,30 @@
 <app-header></app-header>
-<ion-content >
-
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-grid class="bodyContainer">
+      <ion-row class="mainRowContainer">
+        <ion-col size-lg="2" class="MenuActions ion-hide-lg-down">
+          <ion-list color="ripley">
+            <ion-item *ngFor="let option of _MenuService.getMenuOptions()" color="ripley" class="optionMenu" (click)="_MenuService.setActiveOption(option.name)">
+              <ion-label>{{option.title}}</ion-label>
+              <ion-icon [name]="option.icon" slot="end"></ion-icon>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="12" size-lg="7" class="ion-padding-top">
+          <ion-row class="ion-justify-content-center">
+            <ion-col size-lg="6">
+              <ion-card color="ripley">
+                <ion-card-content class="ion-text-center">
+                  <app-account-info></app-account-info>
+                  <app-charge-mount *ngIf="_MenuService.getActivateOption() === 'chargeMount'"></app-charge-mount>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
   <app-footer></app-footer>
 </ion-content>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// servicios
+import { MenuService } from 'src/app/shared/services/menu.service';
+
 @Component({
   selector: 'app-bank-portal',
   templateUrl: './bank-portal.page.html',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BankPortalPage implements OnInit {
 
-  constructor() { }
+
+  constructor(public _MenuService: MenuService) { }
 
   ngOnInit() {
   }

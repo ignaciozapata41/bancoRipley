@@ -1,16 +1,17 @@
-import { ToastService } from './../../../shared/services/toast.service';
+import { ToastService } from './toast.service';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { User, httpResponse } from './../../../interfaces/interfaces';
+import { User, httpResponse } from 'src/app/interfaces/interfaces'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private token: string;
+  private userAcc: User;
 
   constructor(private httpClient: HttpClient, private _ToastService: ToastService, private router: Router) { }
 
@@ -40,7 +41,8 @@ export class UserService {
         .pipe(
           map( (resp : httpResponse) =>{
             if(resp && resp.data){
-              this.token = resp.data;
+              this.token = resp.data.token;
+              this.userAcc = resp.data.user;
               this.closeModals();
               this.router.navigate(['bank-portal']); 
             }
@@ -57,5 +59,19 @@ export class UserService {
     [].forEach.call(modals, function (el:any) {
         el.parentNode.removeChild(el);
     });
-}
+  }
+
+
+  getUserName(){
+    return this.userAcc.name;
+  }
+
+  getToken(){
+    return this.token;
+  }
+
+  getUser(){
+    console.log('user')
+    return this.userAcc;
+  }
 }

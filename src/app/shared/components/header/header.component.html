@@ -1,14 +1,18 @@
 <ion-header [translucent]="true" class="ion-padding-top">
   <ion-toolbar class="ion-padding-start">
-    <ion-buttons slot="end" class=" ion-hide-md-up">
-      <ion-button (click)="showMovileMenu()">
-        <ion-icon name="menu" slot="icon-only"></ion-icon>
+    <ion-buttons slot="end" class="ion-hide-md-up">
+      <ion-button (click)="showMovileMenu()" *ngIf="_UserService.getToken()">
+        <ion-icon name="menu" slot="icon-only" color="ripley"></ion-icon>
       </ion-button>
-    </ion-buttons> -->
-    <ion-buttons slot="start">
+      <ion-button (click)="showMovileLoginForm()" *ngIf="!_UserService.getToken()" fill="outline">
+        <ion-icon name="person" slot="icon-only" color="ripley"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start" class="btn">
       <img
         src="./assets/logos/logo-banco-ripley.svg"
-        alt="imagen no encontrada">
+        alt="imagen no encontrada"
+        (click)="goToHome()">
     </ion-buttons>
     <ion-title>
       

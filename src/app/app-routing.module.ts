@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutenticationGuard } from 'src/app/guards/authentication.guard'
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'bank-portal',
-    loadChildren: () => import('./pages/bank-portal/bank-portal.module').then( m => m.BankPortalPageModule)
+    loadChildren: () => import('./pages/bank-portal/bank-portal.module').then( m => m.BankPortalPageModule),
+    /* canActivate:[AutenticationGuard] */
   },
 ];
 
