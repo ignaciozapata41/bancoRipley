@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 // services
 import { UserService } from 'src/app/shared/services/user.service';
@@ -12,12 +13,13 @@ import { User, BankAccount } from 'src/app/interfaces/interfaces'
   templateUrl: './account-info.component.html',
   styleUrls: ['./account-info.component.scss'],
 })
-export class AccountInfoComponent implements OnInit {
+export class AccountInfoComponent implements OnInit, OnDestroy{
   userInfo: User; 
   userBankAccInfo: BankAccount;
+  loginSubcription: Subscription;
 
   constructor(private _UserService: UserService, private _BankAccountService: BankAccountService) {
-    this._UserService.LoginObservable$.subscribe(() => {
+    this.loginSubcription = this._UserService.LoginObservable$.subscribe(() => {
       this.getUserInfo();
       this.getBankAccInfo();
     })
@@ -26,6 +28,10 @@ export class AccountInfoComponent implements OnInit {
   ngOnInit() {
     this.getUserInfo();
     this.getBankAccInfo();
+  }
+
+  ngOnDestroy(){
+    this.loginSubcription? this.loginSubcription.unsubscribe() : null;
   }
 
   getUserInfo(){

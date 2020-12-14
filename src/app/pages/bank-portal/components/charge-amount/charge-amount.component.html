@@ -5,6 +5,7 @@
     <form [formGroup]="chargeAmountForm" (ngSubmit)="chargeAmount()">
       <ion-list>
         <ion-item>
+          <ion-label position="floating">Saldo</ion-label>
           <ion-input type="number" min="1" placeholder="Ingresar Monto" formControlName="saldo"></ion-input>
         </ion-item>
       </ion-list>

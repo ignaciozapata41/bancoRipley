@@ -13,7 +13,8 @@ export class MenuService {
   private menuOptions: menuOptions[] = [
     {icon: 'trending-up', title: 'Cargar Saldo', name: 'chargeMount'},
     {icon: 'repeat', title: 'Retirar Saldo', name: 'withdraw'},
-    {icon: 'send', title: 'Transferir a Tercero', name: 'transfer'}
+    {icon: 'people-circle-outline', title: 'Transferir a Tercero', name: 'transfer'},
+    {icon: 'document-attach-outline', title: 'Historial de Movimientos', name: 'accHistory'}
   ]
  
   menuSubject$: Subject<any> = new Subject();

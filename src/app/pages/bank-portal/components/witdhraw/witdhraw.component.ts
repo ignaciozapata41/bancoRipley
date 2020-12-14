@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 // services
@@ -10,7 +10,7 @@ import { LoadingService } from 'src/app/shared/services/loading.service';
   templateUrl: './witdhraw.component.html',
   styleUrls: ['./witdhraw.component.scss'],
 })
-export class WitdhrawComponent implements OnInit {
+export class WitdhrawComponent implements OnInit, OnDestroy {
   withdrawForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public _BankAccountService: BankAccountService, private _LoadingService: LoadingService) { 
@@ -20,6 +20,10 @@ export class WitdhrawComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngOnDestroy(){
+    
+  }
 
   async withdrawAmount(){
     await this._LoadingService.presentLoading('Actualizando Saldo...');

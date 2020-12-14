@@ -1,12 +1,14 @@
 <ion-card>
   <ion-card-title> Transferir Saldo a Tercero</ion-card-title>
   <ion-card-content>
-    <form [formGroup]="transferForm" (ngSubmit)="withdrawAmount()">
+    <form [formGroup]="transferForm" (ngSubmit)="transferAmount()">
       <ion-list>
         <ion-item>
+          <ion-label position="floating">Saldo</ion-label>
           <ion-input type="number" #amount min="1" placeholder="Ingresar Monto" formControlName="saldo"></ion-input>
         </ion-item>
         <ion-item>
+          <ion-label position="floating">RUT Destino</ion-label>
           <ion-input #rutDestination type="text" placeholder="Ingresar RUT de Tercero" formControlName="targetRut"></ion-input>
         </ion-item>
       </ion-list>

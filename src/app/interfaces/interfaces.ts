@@ -37,3 +37,12 @@ export interface BankAccount{
     amount: number;
     type: number;
 }
+
+export interface BankAccHistory{
+    transferType: string;
+    amount: number;
+    origin: string;
+    destination: string;
+    createdAt: Date;
+    outMovement: boolean;
+}

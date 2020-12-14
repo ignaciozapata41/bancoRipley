@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 // services
@@ -10,7 +10,7 @@ import { LoadingService } from 'src/app/shared/services/loading.service';
   templateUrl: './transfer-amount.component.html',
   styleUrls: ['./transfer-amount.component.scss'],
 })
-export class TransferAmountComponent implements OnInit {
+export class TransferAmountComponent implements OnInit, OnDestroy {
   transferForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, public _BankAccountService: BankAccountService, private _LoadingService: LoadingService) { 
@@ -27,5 +27,9 @@ export class TransferAmountComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngOnDestroy(){
+    
+  }
 
 }

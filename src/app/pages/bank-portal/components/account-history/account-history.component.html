@@ -1,0 +1,41 @@
+<ion-card>
+  <ion-card-title> Historial de Movimientos</ion-card-title>
+  <ion-card-content>
+    <div style='top:0; right:0; bottom:0; left:0; overflow-y:scroll; overflow-x: hidden; height: 400px;'>
+      <ion-list>
+        <ion-item *ngFor="let movement of _BankAccountService.getAccMovements()">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4">
+                <b>Fecha:</b>
+              </ion-col>
+              <ion-col size="8">
+                {{movement.createdAt | date}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">
+                <b>Monto:</b>
+              </ion-col>
+              <ion-col size="8">
+                {{movement.amount  | currency:'CL' : 'symbol' : '1.0-0'}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4">
+                <b>Tipo:</b>
+              </ion-col>
+              <ion-col size="6">
+                {{ movement.transferType === 'charge'? 'Abono Saldo' : movement.transferType === 'withdraw'? 'Retiro Saldo' : 'Transfencia a Tercero'}}
+              </ion-col>
+              <ion-col size="2">
+                <ion-icon name="return-down-forward-outline" color="danger" *ngIf="(movement.transferType === 'transfer' && !movement.outMovement) || movement.transferType === 'withdraw'"></ion-icon>
+                <ion-icon name="return-down-back-outline" color="success" *ngIf="(movement.transferType === 'transfer' && movement.outMovement) || movement.transferType === 'charge'"></ion-icon>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-card-content>
+</ion-card>

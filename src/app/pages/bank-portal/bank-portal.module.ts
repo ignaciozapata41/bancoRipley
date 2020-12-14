@@ -12,6 +12,7 @@ import { ChargeAmountComponent } from './components/charge-amount/charge-amount.
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { WitdhrawComponent } from './components/witdhraw/witdhraw.component';
 import { TransferAmountComponent } from './components/transfer-amount/transfer-amount.component';
+import { AccountHistoryComponent } from './components/account-history/account-history.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { TransferAmountComponent } from './components/transfer-amount/transfer-a
     AccountInfoComponent,
     WitdhrawComponent,
     TransferAmountComponent,
+    AccountHistoryComponent,
   ]
 })
 export class BankPortalPageModule {}
