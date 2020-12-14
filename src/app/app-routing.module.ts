@@ -17,6 +17,9 @@ const routes: Routes = [
     loadChildren: () => import('./pages/bank-portal/bank-portal.module').then( m => m.BankPortalPageModule),
     canActivate:[AutenticationGuard]
   },
+  { 
+    path: "**",
+    redirectTo: 'home', }
 ];
 
 @NgModule({

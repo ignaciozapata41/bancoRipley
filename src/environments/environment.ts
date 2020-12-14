@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  endPoint:'http://52.72.87.234:80/api/pruebaRipley/',
+  endPoint:'https://bancoripley.herokuapp.com/api/pruebaRipley/',
 };
 
 /*
