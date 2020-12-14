@@ -15,8 +15,7 @@ import { User } from './../../../../../../interfaces/interfaces';
 })
 export class RegisterAccountComponent implements OnInit {
   newUserForm : FormGroup;
-  optionscreditCard: any = {header: 'Necesita abrir cuenta Corriente?'};
-
+  
   constructor(private formBuilder: FormBuilder, private _UserService:UserService, private _LoadingService: LoadingService){
 
     this.newUserForm = formBuilder.group({

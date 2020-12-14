@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 // modules
 import { HomePageModule } from './pages/home/home.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +23,7 @@ import { HomePageModule } from './pages/home/home.module';
     AppRoutingModule,
     HomePageModule,
     HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     StatusBar,

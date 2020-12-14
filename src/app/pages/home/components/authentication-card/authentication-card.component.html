@@ -8,7 +8,7 @@
     </ion-segment>
   </ion-toolbar>
 
-  <ion-slides #slidesCheckIn>
+  <ion-slides (ionSlidesDidLoad)="slideDidLoad()" #slidesAuth>
     <ion-slide>
         <app-login (showNewAccountFormEmitter)="slideOnChange(1, slidesAuth)"></app-login>
     </ion-slide>

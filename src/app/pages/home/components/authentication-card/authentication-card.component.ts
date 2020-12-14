@@ -20,6 +20,11 @@ export class AuthenticationCardComponent implements OnInit {
 
   }
 
+  slideDidLoad(){
+    this.slidesAuth.update();
+    this.slidesAuth.lockSwipes(true);
+  }
+
   slideOnChange(index: number, slide: any){
     this.authSlides.map(async (pag) => {
       pag.index != index ? pag.cheked = false : pag.cheked=true
@@ -28,8 +33,6 @@ export class AuthenticationCardComponent implements OnInit {
     slide.lockSwipes(false);
     slide.slideTo(index);
     slide.lockSwipes(true);
-
-    window.scrollTo({ top: 0});
   }
 
 }
