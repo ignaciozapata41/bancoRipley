@@ -3,8 +3,9 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 //services
 import { UserService } from 'src/app/shared/services/user.service';
+import { LoadingService } from 'src/app/shared/services/loading.service';
 
-// clases
+// class
 import { User } from './../../../../../../interfaces/interfaces';
 
 @Component({
@@ -16,7 +17,7 @@ export class RegisterAccountComponent implements OnInit {
   newUserForm : FormGroup;
   optionscreditCard: any = {header: 'Necesita abrir cuenta Corriente?'};
 
-  constructor(private formBuilder: FormBuilder, private _UserService:UserService){
+  constructor(private formBuilder: FormBuilder, private _UserService:UserService, private _LoadingService: LoadingService){
 
     this.newUserForm = formBuilder.group({
       rut: [null, [Validators.required]],
@@ -28,11 +29,13 @@ export class RegisterAccountComponent implements OnInit {
 
   ngOnInit() {}
 
-  createNewUser(){
+  async createNewUser(){
+    await this._LoadingService.presentLoading('Registrando Nuevo Usuario...');
     let {rut, name, password, email} = this.newUserForm.value;
     let newUser = new User(rut.replace('.','').replace('.',''),name,email.toLowerCase(),password);
 
-    this._UserService.createNewUser(newUser);
+    await this._UserService.createNewUser(newUser);
+    this._LoadingService.hideLoading();
   }
 
 }

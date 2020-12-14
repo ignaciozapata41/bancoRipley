@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ChargeMountComponent } from './charge-mount.component';
+import { WitdhrawComponent } from './witdhraw.component';
 
-describe('ChargeMountComponent', () => {
-  let component: ChargeMountComponent;
-  let fixture: ComponentFixture<ChargeMountComponent>;
+describe('WitdhrawComponent', () => {
+  let component: WitdhrawComponent;
+  let fixture: ComponentFixture<WitdhrawComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChargeMountComponent ],
+      declarations: [ WitdhrawComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ChargeMountComponent);
+    fixture = TestBed.createComponent(WitdhrawComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

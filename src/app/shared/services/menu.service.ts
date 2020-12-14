@@ -11,7 +11,9 @@ export class MenuService {
   private activeOption: string = 'chargeMount';
 
   private menuOptions: menuOptions[] = [
-    {icon: 'trending-up', title: 'Cargar Saldo', name: 'chargeMount'}
+    {icon: 'trending-up', title: 'Cargar Saldo', name: 'chargeMount'},
+    {icon: 'repeat', title: 'Retirar Saldo', name: 'withdraw'},
+    {icon: 'send', title: 'Transferir a Tercero', name: 'transfer'}
   ]
  
   menuSubject$: Subject<any> = new Subject();

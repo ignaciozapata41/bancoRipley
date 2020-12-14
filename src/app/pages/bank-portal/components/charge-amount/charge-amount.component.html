@@ -1,0 +1,14 @@
+
+<ion-card>
+  <ion-card-title> Cargar Saldo</ion-card-title>
+  <ion-card-content>
+    <form [formGroup]="chargeAmountForm" (ngSubmit)="chargeAmount()">
+      <ion-list>
+        <ion-item>
+          <ion-input type="number" min="1" placeholder="Ingresar Monto" formControlName="saldo"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button color="ripley" [disabled]="!chargeAmountForm.valid" type="submit" mode="md">Cargar</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

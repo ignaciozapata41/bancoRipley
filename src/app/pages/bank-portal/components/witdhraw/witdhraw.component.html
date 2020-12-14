@@ -1,0 +1,18 @@
+<ion-card>
+  <ion-card-title> Retirar Saldo</ion-card-title>
+  <ion-card-content>
+    <form [formGroup]="withdrawForm" (ngSubmit)="withdrawAmount()">
+      <ion-list>
+        <ion-item>
+          <ion-input type="number" #amount min="1" placeholder="Ingresar Monto" formControlName="saldo"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div style="color: red" 
+        *ngIf="amount.value > this._BankAccountService.getUserAccAmount()"
+      >
+        El saldo a retirar, no puede ser superior al saldo actual de la cuenta.
+      </div>
+      <ion-button color="ripley" [disabled]="!withdrawForm.valid" type="submit" mode="md">Retirar</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

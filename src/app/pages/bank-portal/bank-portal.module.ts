@@ -8,8 +8,10 @@ import { BankPortalPageRoutingModule } from './bank-portal-routing.module';
 import { BankPortalPage } from './bank-portal.page';
 
 // components
-import { ChargeMountComponent } from './components/charge-mount/charge-mount.component';
+import { ChargeAmountComponent } from './components/charge-amount/charge-amount.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { WitdhrawComponent } from './components/witdhraw/witdhraw.component';
+import { TransferAmountComponent } from './components/transfer-amount/transfer-amount.component';
 
 @NgModule({
   imports: [
@@ -22,8 +24,10 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
   ],
   declarations: [
     BankPortalPage,
-    ChargeMountComponent,
-    AccountInfoComponent
+    ChargeAmountComponent,
+    AccountInfoComponent,
+    WitdhrawComponent,
+    TransferAmountComponent,
   ]
 })
 export class BankPortalPageModule {}

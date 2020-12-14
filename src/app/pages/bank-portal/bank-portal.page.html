@@ -17,7 +17,9 @@
               <ion-card color="ripley">
                 <ion-card-content class="ion-text-center">
                   <app-account-info></app-account-info>
-                  <app-charge-mount *ngIf="_MenuService.getActivateOption() === 'chargeMount'"></app-charge-mount>
+                  <app-charge-amount *ngIf="_MenuService.getActivateOption() === 'chargeMount'"></app-charge-amount>
+                  <app-witdhraw *ngIf="_MenuService.getActivateOption() === 'withdraw'"></app-witdhraw>
+                  <app-transfer-amount *ngIf="_MenuService.getActivateOption() === 'transfer'"></app-transfer-amount>
                 </ion-card-content>
               </ion-card>
             </ion-col>

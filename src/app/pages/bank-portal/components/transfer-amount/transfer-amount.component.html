@@ -1,0 +1,26 @@
+<ion-card>
+  <ion-card-title> Transferir Saldo a Tercero</ion-card-title>
+  <ion-card-content>
+    <form [formGroup]="transferForm" (ngSubmit)="withdrawAmount()">
+      <ion-list>
+        <ion-item>
+          <ion-input type="number" #amount min="1" placeholder="Ingresar Monto" formControlName="saldo"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input #rutDestination type="text" placeholder="Ingresar RUT de Tercero" formControlName="targetRut"></ion-input>
+        </ion-item>
+      </ion-list>
+      <div style="color: red" 
+        *ngIf="amount.value > this._BankAccountService.getUserAccAmount()"
+      >
+        El saldo a retirar, no puede ser superior al saldo actual de la cuenta.
+      </div>
+      <div style="color: red" 
+        *ngIf="rutDestination.value === this._BankAccountService.getUserRut()"
+      >
+        El RUT de destino no puede ser el rut del propietario de la cuenta.
+      </div>
+      <ion-button color="ripley" [disabled]="!transferForm.valid" type="submit" mode="md">Transferir</ion-button>
+    </form>
+  </ion-card-content>
+</ion-card>

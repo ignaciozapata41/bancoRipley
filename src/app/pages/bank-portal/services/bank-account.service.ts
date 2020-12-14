@@ -32,14 +32,32 @@ export class BankAccountService {
     }
   }
 
-  async chargeAmount(amount: number){
-    let url = `${environment.endPoint}bankAcc/chargeAmount`; 
+  async changeAmount(amount: number, type: string){
+    let url = `${environment.endPoint}bankAcc/changeAmount`; 
 
     try{
-      await this.httpClient.put(url, {acc_number: this.UserAccBank.account_number, amount: amount}).pipe(
+      await this.httpClient.put(url, {acc_number: this.UserAccBank.account_number, amount: amount, type}).pipe(
         map( (resp: httpResponse)  =>{
           if(resp && resp.data){
             this._ToastService.presentToast("Cuenta Actualizda exitosamente","success");
+            this.UserAccBank.amount = resp.data.amount;
+          }
+        })
+      ).toPromise();
+    }catch(e){
+      this._ToastService.presentToast('Error actualizando el saldo del usuario', 'danger');
+      console.log('Error actualizando el saldo del usuario', e);
+    }
+  }
+
+  async transferAmount(amount: number, destinationRut: string){
+    let url = `${environment.endPoint}bankAcc/transferAmount`; 
+
+    try{
+      await this.httpClient.put(url, {acc_number: this.UserAccBank.account_number, amount: amount, destinationRut}).pipe(
+        map( (resp: httpResponse)  =>{
+          if(resp && resp.data){
+            this._ToastService.presentToast("Transferencia realizada exitosamente","success");
             this.UserAccBank.amount = resp.data.amount;
           }
         })
@@ -53,4 +71,33 @@ export class BankAccountService {
   getUserAccBank(){
     return this.UserAccBank;
   }
+
+  getUserRut(){
+    return this.UserAccBank.rut;
+  }
+
+  getUserAccAmount(){
+    return this.UserAccBank.amount;
+  }
+
+  validateWithdrawAmount(accAmount) {
+    return function (control) {
+       if(control.value > accAmount){
+         return {response: true};
+       }
+       
+       return null;
+   }
+  }
+
+  validateAutoTransfer(originRut){
+    return function (control) {
+      if(control.value === originRut){
+        return {response: true};
+      }
+      
+      return null;
+    }
+  }
+
 }
