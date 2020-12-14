@@ -4,7 +4,7 @@
   </ion-card-header>
   <ion-card-content>
     <p>En {{avance.numCuotas}} cuotas de {{(avance.ctc / avance.numCuotas) | currency:'$' : 'symbol' : '1.0-0'}}</p>
-    <p>CAE: {{avance.cae.replace}}% | CTC: {{avance.ctc | currency:'$' : 'symbol' : '1.0-0'}}</p>
+    <p>CAE: {{avance.cae}}% | CTC: {{avance.ctc | currency:'$' : 'symbol' : '1.0-0'}}</p>
     <ion-button color="danger" expand="full" class="loQuieroButton">¡Lo quiero!</ion-button>
   </ion-card-content>
 </ion-card>

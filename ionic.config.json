@@ -1,7 +1,8 @@
 {
   "name": "bancoRipley",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
