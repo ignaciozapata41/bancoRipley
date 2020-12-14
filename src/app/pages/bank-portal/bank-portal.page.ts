@@ -1,12 +1,15 @@
+import { BankAccountService } from 'src/app/pages/bank-portal/services/bank-account.service';
 import { Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 
 // services
 import { MenuService } from 'src/app/shared/services/menu.service';
+
+// components
 import { ChargeAmountComponent } from './components/charge-amount/charge-amount.component';
 import { TransferAmountComponent } from './components/transfer-amount/transfer-amount.component';
 import { WitdhrawComponent } from './components/witdhraw/witdhraw.component';
 import { AccountHistoryComponent } from './components/account-history/account-history.component';
-
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-bank-portal',
@@ -20,7 +23,7 @@ export class BankPortalPage implements OnInit, OnDestroy {
   @ViewChild(TransferAmountComponent, {static: false}) TransferAmountComponent: TransferAmountComponent;
   @ViewChild(AccountHistoryComponent, {static: false}) AccountHistoryComponent: TransferAmountComponent;
 
-  constructor(public _MenuService: MenuService) { }
+  constructor(public _MenuService: MenuService, private _BankAccountService: BankAccountService, private _UserService: UserService) { }
 
   ngOnInit() {}
 
@@ -30,6 +33,15 @@ export class BankPortalPage implements OnInit, OnDestroy {
     this.TransferAmountComponent? this.TransferAmountComponent.ngOnDestroy() : null;
     this.AccountHistoryComponent? this.AccountHistoryComponent.ngOnDestroy() : null;
     this._MenuService.setActiveOption('chargeMount');
+    this.removeUserIndo();
+  }
+
+
+  removeUserIndo(){
+    this._BankAccountService.removeUserBankAcc();
+    this._UserService.removeUserSession();
+
+
   }
 
 }

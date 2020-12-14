@@ -1,36 +1,44 @@
 <ion-card>
   <ion-card-title> Historial de Movimientos</ion-card-title>
   <ion-card-content>
-    <div style='top:0; right:0; bottom:0; left:0; overflow-y:scroll; overflow-x: hidden; height: 400px;'>
+    <div style='top:0; right:0; bottom:0; left:0; overflow-y:scroll; overflow-x: hidden;' class="histContainer">
       <ion-list>
         <ion-item *ngFor="let movement of _BankAccountService.getAccMovements()">
           <ion-grid>
-            <ion-row>
+            <ion-row class="ion-align-items-center">
               <ion-col size="4">
                 <b>Fecha:</b>
               </ion-col>
               <ion-col size="8">
-                {{movement.createdAt | date}}
+                {{movement.createdAt | date :"dd-MM-yyyy"}}
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row class="ion-align-items-center">
               <ion-col size="4">
                 <b>Monto:</b>
               </ion-col>
               <ion-col size="8">
-                {{movement.amount  | currency:'CL' : 'symbol' : '1.0-0'}}
+                {{movement.amount  | currency:'$' : 'symbol' : '1.0-0'}}
               </ion-col>
             </ion-row>
-            <ion-row>
+            <ion-row class="ion-align-items-center">
               <ion-col size="4">
                 <b>Tipo:</b>
               </ion-col>
               <ion-col size="6">
-                {{ movement.transferType === 'charge'? 'Abono Saldo' : movement.transferType === 'withdraw'? 'Retiro Saldo' : 'Transfencia a Tercero'}}
+                {{ movement.transferType === 'charge'? 'Abono Saldo' : movement.transferType === 'withdraw'? 'Retiro Saldo' : movement.outMovement? 'Transfencia desde Tercero' : 'Transfencia a Tercero'}}
               </ion-col>
               <ion-col size="2">
                 <ion-icon name="return-down-forward-outline" color="danger" *ngIf="(movement.transferType === 'transfer' && !movement.outMovement) || movement.transferType === 'withdraw'"></ion-icon>
                 <ion-icon name="return-down-back-outline" color="success" *ngIf="(movement.transferType === 'transfer' && movement.outMovement) || movement.transferType === 'charge'"></ion-icon>
+              </ion-col>
+            </ion-row>
+            <ion-row *ngIf="movement.transferType === 'transfer'" class="ion-align-items-center">
+              <ion-col size="4">
+                <b>{{movement.outMovement? 'Cuenta Origen:' : 'Cuenta Destino:'}}</b>
+              </ion-col>
+              <ion-col size="8">
+                {{movement.outMovement?  movement.origin : movement.destination}}
               </ion-col>
             </ion-row>
           </ion-grid>

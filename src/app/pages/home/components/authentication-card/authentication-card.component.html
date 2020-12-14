@@ -1,7 +1,7 @@
 <ion-card class="authenticationContainer" mode="ios">
   <ion-toolbar color="dark">
     <ion-segment color="light">
-      <ion-segment-button *ngFor="let authSlide of authSlides"  [value]="authSlide" (click)="slideOnChange(authSlide.index, slidesAuth )"
+      <ion-segment-button *ngFor="let authSlide of authSlides"  [value]="authSlide" [disabled]="authSlide.disabled" (click)="slideOnChange(authSlide.index, slidesAuth )"
         [class.segment-button-checked]="authSlide.cheked">
         {{authSlide.action}} 
       </ion-segment-button>
@@ -9,7 +9,7 @@
   </ion-toolbar>
 
   <ion-slides #slidesCheckIn>
-    <ion-slide >
+    <ion-slide>
         <app-login (showNewAccountFormEmitter)="slideOnChange(1, slidesAuth)"></app-login>
     </ion-slide>
     <ion-slide >

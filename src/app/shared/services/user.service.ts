@@ -86,4 +86,10 @@ export class UserService {
   getUser(){
     return this.userAcc;
   }
+
+  removeUserSession(){
+    this.token = null;
+    this.userAcc = null;
+    this.router.navigate(['home']); 
+  }
 }

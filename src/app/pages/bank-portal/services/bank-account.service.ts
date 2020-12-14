@@ -128,4 +128,8 @@ export class BankAccountService {
     }
   }
 
+  removeUserBankAcc(){
+    this.UserAccBank = null;
+  }
+
 }

@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   async login(){
     await this._LoadingService.presentLoading('Accediendo a portal Bancario');
     let {rut, password} = this.loginForm.value;
-    await this._UserService.login(rut.replace('.',''),password );
+    await this._UserService.login(rut.replace('.','').replace('.',''),password );
     this._LoadingService.hideLoading();
   }
 

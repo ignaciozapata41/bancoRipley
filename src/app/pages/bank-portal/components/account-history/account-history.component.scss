@@ -1,3 +1,13 @@
-#myFixZone {
-    height: 200px;
+.histContainer{
+    height: 280px !important;
+}
+
+@media (max-width: 578px) {
+    .histContainer{
+      height: 220px !important;
+    }
+  }
+
+menu{
+  background: var(--ion-color-ripley);
 }

@@ -20,7 +20,7 @@ export class RegisterAccountComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private _UserService:UserService, private _LoadingService: LoadingService){
 
     this.newUserForm = formBuilder.group({
-      rut: [null, [Validators.required]],
+      rut: [null, [Validators.required, Validators.minLength(9)]],
       name: [null, Validators.required],
       password: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],

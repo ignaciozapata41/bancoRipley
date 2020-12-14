@@ -16,7 +16,9 @@ export class AuthenticationCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   slideOnChange(index: number, slide: any){
     this.authSlides.map(async (pag) => {

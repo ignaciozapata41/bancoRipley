@@ -1,21 +1,22 @@
 <form id="form" [formGroup]="newUserForm" (ngSubmit)="createNewUser()">
-  <ion-item>
-    <ion-label position="floating">Rut</ion-label>
-    <ion-input type="text" name="rut" formControlName="rut"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Nombre</ion-label>
-    <ion-input type="text" name="name" formControlName="name"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Correo</ion-label>
-    <ion-input type="email" name="email" formControlName="email" placeholder="Correo@ripley.cl"></ion-input>
-    <div class="emailFormatAlert" *ngIf="!newUserForm.controls.email.valid && newUserForm.controls.email.touched">debe ingresar un formato correcto para el correo.</div>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">contraseña</ion-label>
-    <ion-input type="password" name="apellidos" formControlName="password"></ion-input>
-  </ion-item>
-  
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Rut</ion-label>
+      <ion-input type="text" name="rut" formControlName="rut"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" name="name" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input type="email" name="email" formControlName="email" placeholder="Correo@ripley.cl"></ion-input>
+      <div class="emailFormatAlert" *ngIf="!newUserForm.controls.email.valid && newUserForm.controls.email.touched">debe ingresar un formato correcto para el correo.</div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">contraseña</ion-label>
+      <ion-input type="password" name="apellidos" formControlName="password"></ion-input>
+    </ion-item>
+  </ion-list>  
   <ion-button  type="submit" class="ion-margin-top" color="ripley" expand="full" size="medium" [disabled]="!newUserForm.valid" mode="md">Registrar</ion-button>
 </form>

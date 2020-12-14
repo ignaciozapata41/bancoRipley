@@ -29,6 +29,11 @@ export class ChargeAmountComponent implements OnInit, OnDestroy {
   async chargeAmount(){
     await this._LoadingService.presentLoading('Actualizando Saldo...');
     await this._BankAccountService.changeAmount(this.chargeAmountForm.controls['saldo'].value,'charge');
+    this.resetFormValues();
     this._LoadingService.hideLoading();
+  }
+
+  resetFormValues(){
+    this.chargeAmountForm.controls['saldo'].setValue('');
   }
 }

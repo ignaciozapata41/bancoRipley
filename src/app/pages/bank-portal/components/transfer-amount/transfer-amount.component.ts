@@ -23,6 +23,7 @@ export class TransferAmountComponent implements OnInit, OnDestroy {
   async transferAmount(){
     await this._LoadingService.presentLoading('Actualizando Saldo...');
     await this._BankAccountService.transferAmount(this.transferForm.controls['saldo'].value, this.transferForm.controls['targetRut'].value);
+    this.resetFormValues();
     this._LoadingService.hideLoading();
   }
 
@@ -30,6 +31,11 @@ export class TransferAmountComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(){
     
+  }
+
+  resetFormValues(){
+    this.transferForm.controls['saldo'].setValue('');
+    this.transferForm.controls['targetRut'].setValue('');
   }
 
 }

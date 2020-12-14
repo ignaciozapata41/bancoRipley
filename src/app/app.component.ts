@@ -6,7 +6,9 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Subscription } from 'rxjs';
 
+// services
 import { MenuService } from 'src/app/shared/services/menu.service';
+import { UserService } from './shared/services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,7 @@ export class AppComponent implements OnDestroy{
     private statusBar: StatusBar,
     private menu: MenuController,
     public _MenuService: MenuService,
+    private _UserService: UserService,
   ) {
     this.initializeApp();
 
@@ -53,4 +56,10 @@ export class AppComponent implements OnDestroy{
     this.closeopenMovileMenu();
     this._MenuService.showloginFormMovil();
   }
+
+  closeSession(){
+    this._UserService.removeUserSession();
+  }
+
+
 }

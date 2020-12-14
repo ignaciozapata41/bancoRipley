@@ -28,6 +28,11 @@ export class WitdhrawComponent implements OnInit, OnDestroy {
   async withdrawAmount(){
     await this._LoadingService.presentLoading('Actualizando Saldo...');
     await this._BankAccountService.changeAmount(this.withdrawForm.controls['saldo'].value, 'withdraw');
+    this.resetFormValues();
     this._LoadingService.hideLoading();
+  }
+
+  resetFormValues(){
+    this.withdrawForm.controls['saldo'].setValue('');
   }
 }

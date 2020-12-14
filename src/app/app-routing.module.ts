@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'bank-portal',
     loadChildren: () => import('./pages/bank-portal/bank-portal.module').then( m => m.BankPortalPageModule),
-    /* canActivate:[AutenticationGuard] */
+    canActivate:[AutenticationGuard]
   },
 ];
 

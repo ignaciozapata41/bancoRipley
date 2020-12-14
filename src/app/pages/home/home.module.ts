@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { HomePage } from './home.page';
@@ -19,8 +18,6 @@ import { AuthMovileModalPage } from 'src/app/pages/home/components/modals/auth-m
   imports: [
     CommonModule,
     IonicModule,
-    ReactiveFormsModule,
-    FormsModule,
     HomePageRoutingModule,
     sharedModule,
     homeComponentsModule,
